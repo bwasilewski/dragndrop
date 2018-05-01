@@ -69,6 +69,16 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main__ = __webpack_require__(1);
+
+
+let obj = new __WEBPACK_IMPORTED_MODULE_0__main__["a" /* default */](document.getElementById('drag-list'))
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 class DnD {
     constructor (el) {
         this.el = el;
@@ -81,7 +91,7 @@ class DnD {
         console.log('New DragNDrop instance created: ', el);
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["default"] = DnD;
+/* harmony export (immutable) */ __webpack_exports__["a"] = DnD;
 
 
 /***/ })
