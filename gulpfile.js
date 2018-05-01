@@ -4,25 +4,32 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
     jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    browsersync = require('browser-sync');
+    uglify = require('gulp-uglify-es').default,
+    browsersync = require('browser-sync')
+    webpack = require('webpack-stream');
 
 
 
 gulp.task('scripts', function(){
-  return gulp.src('src/**/*.js')
+  return gulp.src('src/main.js')
     .pipe(plumber({
       errorHandler: function (error) {
         console.log(error.message);
         this.emit('end');
     }}))
-    .pipe(jshint())
+    .pipe(jshint({
+        esversion: 6
+    }))
     .pipe(jshint.reporter('default'))
-    .pipe(concat('main.js'))
-    .pipe(babel())
+    .pipe(webpack({
+        entry: './src/main.js',
+        output: {
+            filename: 'main.js'
+        }
+    }))
     .pipe(gulp.dest('dist/'))
-    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
+    .pipe(rename({basename: 'main', suffix: '.min', extname: '.js'}))
     .pipe(gulp.dest('dist/'))
 });
 
@@ -44,7 +51,7 @@ gulp.task('browsersync', function () {
 
 gulp.task('default', function(){
     gulp.start('browsersync');
-    gulp.watch("src/**/*.js", ['scripts', 'example']);
+    gulp.watch("src/**/*.js", ['scripts'], ['example']);
     gulp.watch("./example/**/*", function () {
         browsersync.reload();
     })
