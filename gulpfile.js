@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
-    babel = require('gulp-babel'),
     concat = require('gulp-concat'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify-es').default,

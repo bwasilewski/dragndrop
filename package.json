@@ -9,7 +9,6 @@
   "devDependencies": {
     "browser-sync": "^2.24.1",
     "gulp": "3.8.11",
-    "gulp-babel": "5.1.0",
     "gulp-concat": "2.5.2",
     "gulp-jshint": "1.10.0",
     "gulp-plumber": "1.0.0",
