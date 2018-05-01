@@ -1,0 +1,9 @@
+{
+  "name": "dragndrop",
+  "version": "1.0.0",
+  "description": "A simple javascript drag and drop library",
+  "main": "main.js",
+  "author": "Ben Wasilewski <benwasilewski@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
